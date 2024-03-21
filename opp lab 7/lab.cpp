@@ -46,6 +46,25 @@ public:
     int getTeacherID() const { return teacherID; }
     const string& getName() const { return name; }
 };
+class Course {
+private:
+    string courseName;
+    Teacher* teacher;
+    vector<Student*> studentsEnrolled;
+    int maxCapacity;
+    int currentCapacity;
+
+public:
+    Course(string name, Teacher* t, int capacity) : courseName(name), teacher(t), maxCapacity(capacity), currentCapacity(0) {}
+
+    bool addStudent(Student* student);
+    void removeStudent(Student* student);
+    void viewStudents();
+    void saveToFile(ofstream& file);
+
+    // Add getters for private members
+    const string& getCourseName() const { return courseName; }
+};
 
 
 
